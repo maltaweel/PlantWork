@@ -15,7 +15,7 @@ class LoadData:
         
 
         #The data file path is now created where the data folder and dataFile.csv is referenced
-        path=os.path.join(pn,'data','ademnes_export_samples_flora.csv')
+        path=os.path.join(pn,'data')
         
         return path
     
@@ -27,6 +27,9 @@ class LoadData:
         self.domestic={}
         self.proportion={}
         self.ubiquity={}
+        
+        location=os.path.join(location,'ademnes_export_samples_flora.csv')
+        
         
         with open(location,encoding = "ISO-8859-1", mode='r') as csvfile:
                 reader = csv.DictReader(csvfile)
@@ -71,8 +74,12 @@ class LoadData:
                     self.ubiquity[site_p_taxon]=ubquity
                     
                     print(self.ubiquity[site_p_taxon])
-                
-                    
+    
+    
+    def outputPlants(self):
+        
+        path=self.loadPath()
+       
 
     def run(self):
         path=self.loadPath()
